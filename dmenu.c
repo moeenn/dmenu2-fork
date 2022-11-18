@@ -226,13 +226,13 @@ read_resourses(void) {
 	}
 	/* Set default colors if they are not set */
 	if( normbgcolor == NULL )
-		normbgcolor = "#282A2E";
+		normbgcolor = "#232323";
 	if( normfgcolor == NULL )
 		normfgcolor = "#C5C8C6";
 	if( selbgcolor == NULL )
-		selbgcolor  = "#373B41";
+		selbgcolor  = "#303030";
 	if( selfgcolor == NULL )
-		selfgcolor  = "#F0C674";
+		selfgcolor  = "#FF6A35";
 	if( dimcolor == NULL )
 		dimcolor = "#707880";
 	if( !opacity )
