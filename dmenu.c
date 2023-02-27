@@ -224,19 +224,14 @@ read_resourses(void) {
 			opacity = atof(strdup(xvalue.addr));
 		XrmDestroyDatabase(xdb);
 	}
-	/* Set default colors if they are not set */
-	if( normbgcolor == NULL )
-		normbgcolor = "#232323";
-	if( normfgcolor == NULL )
-		normfgcolor = "#C5C8C6";
-	if( selbgcolor == NULL )
-		selbgcolor  = "#303030";
-	if( selfgcolor == NULL )
-		selfgcolor  = "#FF6A35";
-	if( dimcolor == NULL )
-		dimcolor = "#707880";
-	if( !opacity )
-		opacity = 1.0;
+
+	/* Set default colors */
+	normbgcolor = "#232323";
+	normfgcolor = "#F7F7F7";
+	selbgcolor  = "#303030";
+	selfgcolor  = "#E95420";
+	dimcolor = "#707880";
+	opacity = 1.0;
 }
 
 void
