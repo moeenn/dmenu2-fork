@@ -15,7 +15,7 @@
 #include "draw.h"
 
 #define INTERSECT(x,y,w,h,r)  (MAX(0, MIN((x)+(w),(r).x_org+(r).width)  - MAX((x),(r).x_org)) \
-                             * MAX(0, MIN((y)+(h),(r).y_org+(r).height) - MAX((y),(r).y_org)))
+                             && MAX(0, MIN((y)+(h),(r).y_org+(r).height) - MAX((y),(r).y_org)))
 #define MIN(a,b)              ((a) < (b) ? (a) : (b))
 #define MAX(a,b)              ((a) > (b) ? (a) : (b))
 #define DEFFONT "JetBrains Mono:size=9" /* xft example: "Monospace-11" */
@@ -581,19 +581,9 @@ keypress(XKeyEvent *ev) {
 
 char *
 strchri(const char *s, int c) {
-	char *u, *l;
 	if(!isalpha(c)) return strchr(s, c);
-	if(isupper(c)) {
-		u = strchr(s, c);
-		l = strchr(s, tolower(c));
-	}
-	else {
-		l = strchr(s, c);
-		u = strchr(s, toupper(c));
-	}
+	return "";
 }
-
-
 
 void
 matchstr(void) {
