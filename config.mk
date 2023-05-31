@@ -1,9 +1,9 @@
-# dmenu2 version
-VERSION = 0.1
+# dmenu version
+VERSION = 5.2
 
 # paths
 PREFIX = /usr/local
-MANPREFIX = ${PREFIX}/share/man
+MANPREFIX = $(PREFIX)/share/man
 
 X11INC = /usr/X11R6/include
 X11LIB = /usr/X11R6/lib
@@ -12,19 +12,21 @@ X11LIB = /usr/X11R6/lib
 XINERAMALIBS  = -lXinerama
 XINERAMAFLAGS = -DXINERAMA
 
-# Xft, comment if you don't want it
-XFTINC = -I/usr/include/freetype2
-XFTLIBS  = -lXft -lXrender -lfreetype -lz -lfontconfig
+# freetype
+FREETYPELIBS = -lfontconfig -lXft
+FREETYPEINC = /usr/include/freetype2
+# OpenBSD (uncomment)
+#FREETYPEINC = $(X11INC)/freetype2
+#MANPREFIX = ${PREFIX}/man
 
 # includes and libs
-INCS = -I${X11INC} ${XFTINC}
-LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${XFTLIBS}
+INCS = -I$(X11INC) -I$(FREETYPEINC)
+LIBS = -L$(X11LIB) -lX11 $(XINERAMALIBS) $(FREETYPELIBS) -lm
 
 # flags
-CPPFLAGS = -D_DEFAULT_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
-#CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS   = -std=c99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
-LDFLAGS  = -s ${LIBS}
+CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700 -D_POSIX_C_SOURCE=200809L -DVERSION=\"$(VERSION)\" $(XINERAMAFLAGS)
+CFLAGS   = -std=c99 -pedantic -Wall -Os $(INCS) $(CPPFLAGS)
+LDFLAGS  = $(LIBS)
 
 # compiler and linker
 CC = cc
