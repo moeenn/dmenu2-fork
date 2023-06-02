@@ -1,5 +1,7 @@
 static int topbar = 0;
 static int fuzzy = 1;
+static int centered = 1;
+static int min_width = 500;
 static const char *fonts[] = {"JetBrains Mono:size=10"};
 static const char *prompt = NULL;
 static const char *colors[SchemeLast][2] = {
@@ -9,7 +11,7 @@ static const char *colors[SchemeLast][2] = {
     [SchemeOut] = {"#000000", "#00ffff"},
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
-static unsigned int lines = 0;
+static unsigned int lines = 6;
 /* -h option; minimum height of a menu line */
 static unsigned int lineheight = 45;
 static unsigned int min_lineheight = 10;
