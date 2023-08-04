@@ -5,10 +5,10 @@ static int min_width = 550;
 static const char *fonts[] = {"JetBrains Mono:size=10"};
 static const char *prompt = NULL;
 static const char *colors[SchemeLast][2] = {
-    /* fg       bg       */
-    [SchemeNorm] = {"#F7F7F7", "#232323"},
-    [SchemeSel] = {"#FDA53B", "#303030"},
-    [SchemeOut] = {"#000000", "#00ffff"},
+                   /* fg       bg       */
+    [SchemeNorm] = {"#CBCACB", "#252525"},
+    [SchemeSel] =  {"#FBB86C", "#2c2c2c"},
+    [SchemeOut] =  {"#000000", "#00ffff"},
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines = 7;
